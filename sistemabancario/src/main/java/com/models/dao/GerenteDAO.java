@@ -13,13 +13,13 @@ public class GerenteDAO {
         GerenteDAO.conexao = conexao;
     }
 
-    public static boolean validarGerente(String cpfGerente, String senhaGerente) throws SQLException {
+    public boolean validarGerente(String cpfGerente, String senhaGerente) throws SQLException {
         String sql = "SELECT cpf FROM Gerente WHERE cpf = ? AND senha = ?";
-    
+
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, cpfGerente);
             stmt.setString(2, senhaGerente);
-    
+
             try (ResultSet resultSet = stmt.executeQuery()) {
                 return resultSet.next(); // Se houver resultados na consulta, as credenciais são válidas
             }
