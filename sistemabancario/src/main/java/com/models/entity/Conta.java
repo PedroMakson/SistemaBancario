@@ -2,6 +2,7 @@ package com.models.entity;
 
 import java.time.LocalDate;
 
+
 public class Conta {
 
     private Usuario usuario;
@@ -86,6 +87,9 @@ public class Conta {
 
     public void setStatusConta(boolean statusConta) {
         this.statusConta = statusConta;
+    }
+
+    public void setAgencia(String string) {
     }
 
 }

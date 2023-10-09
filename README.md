@@ -23,7 +23,7 @@
  ##  🛠 Feito com
 * [Astah UML](https://astah.net/downloads/)
     * Criação do diagrama de classe;
-* [Visual Studio Code](https://code.visualstudio.com/) & [Eclipse](https://eclipseide.org/)
+* [Visual Studio Code](https://code.visualstudio.com/)
     * Criação do código;
 * [Git e Github](https://github.com/liviabeatrizml/GradeHoraria)
     * Controle de versão e hospedagem do código;
@@ -31,12 +31,8 @@
    * Banco de Dados;
 * [Meet](https://meet.google.com/)
 	 * Chamada via meet (Compartilhamento de tela ao vivo e reuniões);
-* [Overleaf](https://www.overleaf.com/login)
-    * Editor online de texto em LaTeX;
 * [Documentos Google](https://www.overleaf.com/login)
     * Processador de texto on-line;
-* [Canva](https://www.overleaf.com/login)
-    * Plataforma de design gráfico.
 ##
 
 <p align="right">

@@ -1,0 +1,78 @@
+/* CRIAÇÃO DO BANCO DE DADOS - SISTEMA BANCÁRIO */
+CREATE DATABASE sistemabancario;
+
+/* CRIAÇÃO DA TABELA USUARIOS */
+CREATE TABLE Usuarios (
+	cpf CHAR(11) NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	rg CHAR(9) NOT NULL,
+	renda NUMERIC(10, 2) NOT NULL,
+	telefone CHAR(11) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	dataNascimento DATE NOT NULL,
+	cep CHAR(9) NOT NULL,
+	rua VARCHAR(100) NOT NULL,
+	numeroDaCasa INT NOT NULL,
+	bairro VARCHAR(100) NOT NULL,
+	cidade VARCHAR(100) NOT NULL,
+ 	uf CHAR(2) NOT NULL,
+    	PRIMARY KEY (cpf)
+);
+
+/* CRIAÇÃO DA TABELA GERENTE */
+CREATE TABLE Gerente (
+	cpf CHAR(11) NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	rg CHAR(8) NOT NULL,
+	telefone CHAR(11) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	dataNascimento DATE NOT NULL,
+	cargo VARCHAR(50) NOT NULL,
+	salario NUMERIC(10, 2) NOT NULL,
+	senha CHAR(6) NOT NULL,
+	cep CHAR(9) NOT NULL,
+	rua VARCHAR(100) NOT NULL,
+	numeroDaCasa INT NOT NULL,
+	bairro VARCHAR(100) NOT NULL,
+	cidade VARCHAR(100) NOT NULL,
+	uf CHAR(2) NOT NULL,
+	PRIMARY KEY (cpf)
+);
+
+/* CRIAÇÃO DA TABELA CONTA */
+CREATE TABLE Conta (
+	cpf CHAR(11) NOT NULL,
+	tipoconta VARCHAR(50) NOT NULL,
+	agencia CHAR(4) NOT NULL,
+	conta CHAR(6) NOT NULL,
+	saldo NUMERIC(10,2) NOT NULL,
+	senha CHAR(6) NOT NULL,
+	statusconta BOOLEAN NOT NULL,
+	datacadastro DATE DEFAULT CURRENT_DATE NOT NULL,
+	FOREIGN KEY (cpf) REFERENCES Usuarios
+);
+
+/* CRIAÇÃO DA TABELA EMPRESTIMO */
+CREATE TABLE Emprestimo (
+        cpf CHAR(11) NOT NULL,
+	documento VARCHAR NOT NULL,
+	dataemissao DATE DEFAULT CURRENT_DATE NOT NULL,
+	valortotal NUMERIC(10,2) NOT NULL,
+	quantidadeparcelas INTEGER NOT NULL,
+	valorjuros NUMERIC(4,2) NOT NULL,
+	datavencimento DATE NOT NULL,
+	parcelaatual INTEGER NOT NULL,
+	valorparcela NUMERIC(10,2) NOT NULL,
+	valorrecebido NUMERIC(10,2) NOT NULL,
+	statusparcela BOOLEAN DEFAULT FALSE NOT NULL,
+	FOREIGN KEY (cpf) REFERENCES Usuarios
+);
+
+/* CRIAÇÃO DA TABELA TRANSACOES */
+CREATE TABLE Transacoes (
+    	cpf CHAR(11) NOT NULL,
+   	descricao VARCHAR(150) NOT NULL,
+   	valor NUMERIC(10, 2) NOT NULL,
+    	data DATE DEFAULT CURRENT_DATE NOT NULL,    
+    	FOREIGN KEY (cpf) REFERENCES Usuarios
+);
